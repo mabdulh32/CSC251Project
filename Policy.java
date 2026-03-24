@@ -1,5 +1,7 @@
 /**
-
+ * The Policy class represents an insurance policy.
+ * It stores information about the policy and the policyholder,
+ * and provides methods to calculate BMI and policy price.
  */
 public class Policy {
     // Fields (attributes)
@@ -26,6 +28,18 @@ public class Policy {
         this.weight = 0.0;
     }
     
+    /**
+     * Constructor that initializes all fields with the provided values.
+     *
+     * @param policyNumber  the policy number
+     * @param providerName  the name of the insurance provider
+     * @param firstName     the policyholder's first name
+     * @param lastName      the policyholder's last name
+     * @param age           the policyholder's age
+     * @param smokingStatus the policyholder's smoking status ("smoker" or "non-smoker")
+     * @param height        the policyholder's height in inches
+     * @param weight        the policyholder's weight in pounds
+     */
     public Policy(String policyNumber, String providerName, String firstName,
                   String lastName, int age, String smokingStatus,
                   double height, double weight) {
@@ -42,56 +56,72 @@ public class Policy {
     // Getter methods (accessors)
     
     /**
-     * @return The policy number
+     * Returns the policy number.
+     *
+     * @return the policy number
      */
     public String getPolicyNumber() {
         return policyNumber;
     }
     
     /**
-     * @return The provider name
+     * Returns the provider name.
+     *
+     * @return the name of the insurance provider
      */
     public String getProviderName() {
         return providerName;
     }
     
     /**
-     * @return The policyholder's first name
+     * Returns the policyholder's first name.
+     *
+     * @return the policyholder's first name
      */
     public String getFirstName() {
         return firstName;
     }
     
     /**
-     * @return The policyholder's last name
+     * Returns the policyholder's last name.
+     *
+     * @return the policyholder's last name
      */
     public String getLastName() {
         return lastName;
     }
     
     /**
-     * @return The policyholder's age
+     * Returns the policyholder's age.
+     *
+     * @return the policyholder's age
      */
     public int getAge() {
         return age;
     }
     
     /**
-     * @return The policyholder's smoking status
+     * Returns the policyholder's smoking status.
+     *
+     * @return the policyholder's smoking status ("smoker" or "non-smoker")
      */
     public String getSmokingStatus() {
         return smokingStatus;
     }
     
     /**
-     * @return The policyholder's height in inches
+     * Returns the policyholder's height.
+     *
+     * @return the policyholder's height in inches
      */
     public double getHeight() {
         return height;
     }
     
     /**
-     * @return The policyholder's weight in pounds
+     * Returns the policyholder's weight.
+     *
+     * @return the policyholder's weight in pounds
      */
     public double getWeight() {
         return weight;
@@ -100,77 +130,95 @@ public class Policy {
     // Setter methods (mutators)
     
     /**
-     * @param policyNumber The policy number to set
+     * Sets the policy number.
+     *
+     * @param policyNumber the policy number to set
      */
     public void setPolicyNumber(String policyNumber) {
         this.policyNumber = policyNumber;
     }
     
     /**
-     * @param providerName The provider name to set
+     * Sets the provider name.
+     *
+     * @param providerName the provider name to set
      */
     public void setProviderName(String providerName) {
         this.providerName = providerName;
     }
     
     /**
-     * @param firstName The policyholder's first name to set
+     * Sets the policyholder's first name.
+     *
+     * @param firstName the policyholder's first name to set
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     
     /**
-     * @param lastName The policyholder's last name to set
+     * Sets the policyholder's last name.
+     *
+     * @param lastName the policyholder's last name to set
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
     
     /**
-     * @param age The policyholder's age to set
+     * Sets the policyholder's age.
+     *
+     * @param age the policyholder's age to set
      */
     public void setAge(int age) {
         this.age = age;
     }
     
     /**
-     * @param smokingStatus The policyholder's smoking status to set
+     * Sets the policyholder's smoking status.
+     *
+     * @param smokingStatus the policyholder's smoking status to set ("smoker" or "non-smoker")
      */
     public void setSmokingStatus(String smokingStatus) {
         this.smokingStatus = smokingStatus;
     }
     
     /**
-     * @param height The policyholder's height in inches to set
+     * Sets the policyholder's height.
+     *
+     * @param height the policyholder's height in inches to set
      */
     public void setHeight(double height) {
         this.height = height;
     }
     
     /**
-     * @param weight The policyholder's weight in pounds to set
+     * Sets the policyholder's weight.
+     *
+     * @param weight the policyholder's weight in pounds to set
      */
     public void setWeight(double weight) {
         this.weight = weight;
     }
     
     /**
-     * Calculates and returns the BMI of the policyholder
+     * Calculates and returns the BMI of the policyholder.
      * BMI = (Policyholder's Weight * 703) / (Policyholder's Height^2)
-     * @return The calculated BMI
+     *
+     * @return the calculated BMI
      */
     public double calculateBMI() {
         return (weight * 703) / (height * height);
     }
     
     /**
-     * Calculates and returns the price of the insurance policy
+     * Calculates and returns the price of the insurance policy.
      * Base fee: $600
-     * Age > 50: +$75
+     * Age greater than 50: +$75
      * Smoker: +$100
-     * BMI > 35: +(BMI - 35) * 20
-     * @return The calculated policy price
+     * BMI greater than 35: +(BMI - 35) * $20
+     *
+     * @return the calculated policy price
      */
     public double calculatePolicyPrice() {
         double price = 600.0; // Base fee
